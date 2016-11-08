@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<style>
+.outerWrapper{
+display:flex;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
+height:100%;
+width:100%;
+background-image:url(https://lolstatic-a.akamaihd.net/frontpage/apps/prod/lcu_alpha_website/en_US/62aa54e72d774e7237129f46abc18d3b5b2a3e50/assets/img/bgs/magic-repeater.jpg);
+}
+.submitButton{
+background-color: #BF6904;
+background: linear-gradient(#db8e01,#871e0a);
+box-shadow: inset 1px 1px 9px rgba(135,30,10,.8),inset -1px -1px 5px rgba(181,60,2,.8);
+color: #FFF;
+border: 1px solid #a29361;
+border-color: #a29361 #928456 #5f5940 #928456;
+text-shadow: 1px 1px 2px rgba(0,0,0,.8);
+width:250px;
+height:50px;
+
+}
+.summonerTitle{
+font-family:arial;
+text-transform: uppercase;
+background: -webkit-repeating-linear-gradient(#e5cda0 0,#e5cda0 10px,#79622b 60px,#79622b 75px);
+-webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+	margin:0 0 50px 0;
+}
+.innerWrapper {
+border: 1px solid gainsboro;
+padding: 60px;
+background:rgba(0,0,0,.7);
+border:1px solid #95834c;
+text-align:center;
+}
+input.summonerInput {
+  width: 100%;
+  margin-bottom: 30px;
+  height: 50px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+</style>
+
+</head>
+<body>
+<div class="outerWrapper">
+<div class="innerWrapper">
+<h1 class="summonerTitle"> Choose Your Fate </h1>
+
+<form action="/summoner_profile">
+	<input type="submit" class="submitButton" value="Summoner Profile" />
+</form>
+
+<form action="/taco">
+	<input type="submit" class="submitButton" value="Taco Test" />
+</form>
+</div>
+</div>
+
+</body>
+</html>

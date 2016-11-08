@@ -1,0 +1,73 @@
+$def with (summoner_response)
+<html>
+<head>
+    <title>Summoner Profile</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <style>
+    .outerWrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    height:100%;
+    width:100%;
+    background-image:url(https://lolstatic-a.akamaihd.net/frontpage/apps/prod/lcu_alpha_website/en_US/62aa54e72d774e7237129f46abc18d3b5b2a3e50/assets/img/bgs/magic-repeater.jpg);
+    }
+    .submitButton{
+    width:100%;
+    background-color:blue;
+    color:white;
+    background: url(https://lolstatic-a.akamaihd.net/frontpage/apps/prod/lcu_alpha_website/en_US/62aa54e72d774e7237129f46abc18d3b5b2a3e50/assets/img/Nav/LCU_AlphaWebsite_Button_NavTier1.png) center -13px no-repeat;
+    height: 81px;
+    width: 326px;
+    font-size: 26px;
+    color: #aec6c7;
+    display: block;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 70px;
+    margin: 0 auto;
+    z-index: 2;
+    pointer-events: all;
+    position: relative;
+    border:inherit;
+    }
+    .summonerTitle{
+    font-family:arial;
+    text-transform: uppercase;
+    background: -webkit-repeating-linear-gradient(#e5cda0 0,#e5cda0 10px,#79622b 60px,#79622b 75px);
+    -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .innerWrapper {
+    border: 1px solid gainsboro;
+    padding: 60px;
+    background:rgba(0,0,0,.7);
+    border:1px solid #95834c;
+    }
+    input.summonerInput {
+        width: 100%;
+        margin-bottom: 30px;
+        height: 50px;
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    </style>
+
+</head>
+<body>
+<div class="outerWrapper">
+<div class="innerWrapper">
+<h1 class="summonerTitle">$summoner_response</h1>
+<h1 class="summonerTitle">Enter Your Summoner Name</h1>
+
+<form action="/summoner_profile" method="POST">
+<input type="text" class="summonerInput" name="summonerProfile">
+<br/>
+<input type="submit" class="submitButton">
+</form>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+$def with (summoner_name, summoner_level, champ_one, champ_two, champ_three, champ_four, champ_five, image_one, image_two, image_three, image_four, image_five, title_one, title_two, title_three, title_four, title_five, most_played_champ, summoner_icon, summoner_tier, summoner_sub_tier, tier_image, ranked_wins, ranked_losses, average_kills, average_deaths, average_assists, most_winning_champion)
+
+<html>
+<head>
+<title>Summoner Most Played Champs</title>
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+<style>
+body{
+background-image:url(https://lolstatic-a.akamaihd.net/frontpage/apps/prod/lcu_alpha_website/en_US/62aa54e72d774e7237129f46abc18d3b5b2a3e50/assets/img/bgs/magic-repeater.jpg);
+  width:100%;
+  height:100%;
+}
+.outerWrapper{
+display:flex;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
+height:100%;
+width:100%;
+
+}
+.summonerTitle{
+font-family:arial;
+text-transform: uppercase;
+background: -webkit-repeating-linear-gradient(#e5cda0 0,#e5cda0 10px,#79622b 60px,#79622b 75px);
+-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.summonerTitle > span{
+  color:#257372;
+  -webkit-text-fill-color: white;
+  border:0.5px solid white;
+  padding:10px;
+}
+.innerWrapper {
+border: 1px solid gainsboro;
+padding: 60px;
+background:rgba(0,0,0,.7);
+border:1px solid #95834c;
+}
+input.summonerInput {
+width: 100%;
+margin-bottom: 30px;
+height: 50px;
+padding: 10px;
+font-size: 20px;
+}
+.championInfo{
+color:white;
+
+}
+.ChampionBlockOuter{
+border-bottom:.5px solid rgba(255, 255, 255, 0.09);
+padding:10px 0;
+letter-spacing:inherit;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<img src=$most_played_champ>
+</br>
+<img src=$summoner_icon> <b style="color:white;">Level $summoner_level</b>
+</br>
+<img src=$tier_image> <b style="color:white;">$summoner_tier</b> <b style="color:white;">$summoner_sub_tier</b>
+</br>
+<b style="color:white;">Wins: $ranked_wins Loses: $ranked_losses</b>
+</br>
+<b style="color:white;">Average KDA: $average_kills / $average_assists / $average_deaths</b>
+</br>
+<b style="color:white;">Current most winning champion $most_winning_champion</b>
+
+<div class="outerwrapper">
+<div class="innerWrapper">
+<h1 class="summonerTitle">The top 5 most frequently played champions for <span>$summoner_name</span> are: </h1>
+
+<div class="ChampionBlockOuter pure-g">
+<div class="championImage pure-u-md-1-5 pure-u-sm-1-1"> <img src=$image_one> </div>
+<div class="championInfo pure-u-md-4-5 pure-u-sm-1-1"> <h3 class="championName">$champ_one</h3> $title_one </div>
+</div>
+<div class="ChampionBlockOuter pure-g">
+<div class="championImage pure-u-md-1-5 pure-u-sm-1-1"> <img src=$image_two> </div>
+<div class="championInfo pure-u-md-4-5 pure-u-sm-1-1"><h3 class="championName">$champ_two</h3> $title_two </div>
+</div>
+<div class="ChampionBlockOuter pure-g">
+<div class="championImage pure-u-md-1-5 pure-u-sm-1-1"> <img src=$image_three> </div>
+<div class="championInfo pure-u-md-4-5 pure-u-sm-1-1"> <h3 class="championName">$champ_three</h3> $title_three</div>
+</div>
+<div class="ChampionBlockOuter pure-g">
+<div class="championImage pure-u-md-1-5 pure-u-sm-1-1"> <img src=$image_four> </div>
+<div class="championInfo pure-u-md-4-5 pure-u-sm-1-1"> <h3 class="championName">$champ_four</h3> $title_four</div>
+</div>
+<div class="ChampionBlockOuter pure-g">
+<div class="championImage pure-u-md-1-5 pure-u-sm-1-1"> <img src=$image_five> </div>
+<div class="championInfo pure-u-md-4-5 pure-u-sm-1-1"><h3 class="championName">$champ_five</h3> $title_five </div>
+</div>
+
+</div>
+</div>
+</body>
+</html>
