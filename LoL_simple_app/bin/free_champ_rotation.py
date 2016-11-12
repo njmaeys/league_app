@@ -38,4 +38,16 @@ def free_champs(free_list):
 
 	return free_champions
 
+
+def free_champ_images(free_rotation_list):
+	free_champ_image_urls = []
+	image_url = 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/'
+
+	while len(free_rotation_list) > 0:
+		free_name = free_rotation_list.pop(0)
+		free_url =	image_url+free_name+'_0.jpg' 	
+		free_champ_image_urls.append(free_url)
+
+	return free_champ_image_urls
+
 raw_champ.close()
