@@ -7,13 +7,14 @@ import summoner_ranking_information as sri
 import helper_functions as hf
 import web_classes_SummonerProfile as SP
 import web_classes_Index as IX
+import web_classes_FreeRotation as FR
 import os
 
 urls = (
 	'/', 'Index',
 	'/summoner_profile', 'SummonerProfile',
 	'/summoner_profile/no_summoner_found', 'noSummoner',
-	'/taco', 'Taco'
+	'/free_rotation', 'FreeRotation'
 	)
 
 app = web.application(urls, globals())
@@ -22,11 +23,7 @@ app = web.application(urls, globals())
 # Each url can be defined in a web_class file and called here in the urls
 SummonerProfile = SP.SummonerProfile
 Index = IX.Index
-
-# Dummy class to remove eventually...
-class Taco:
-	def GET(self):
-		return "hello taco"
+FreeRotation = FR.FreeRotation
 
 
 if __name__ == "__main__":

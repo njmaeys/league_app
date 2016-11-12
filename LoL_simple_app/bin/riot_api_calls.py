@@ -30,3 +30,7 @@ def summoner_ranked_wins_losses(key, champ_id):
 def recent_match_data(key, champ_id):
 	recent_match_data = ('https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/'+str(champ_id)+'/recent?api_key='+key)
 	return recent_match_data
+
+def champion_live_data(key):
+	champion_url = ('https://na.api.pvp.net/api/lol/na/v1.2/champion?api_key='+key)
+	return champion_url
