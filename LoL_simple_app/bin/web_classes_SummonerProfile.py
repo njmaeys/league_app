@@ -19,12 +19,15 @@ class SummonerProfile:
 		return render.summoner_profile_form(summoner_response=summoner_response)
 
 	def POST(self):
-		form = web.input(summoner="nobody")
+		form = web.input(summoner=None)
 		summoner = "%s" % (form.summonerProfile)
 
 		raw_summoner = rq.get(rac.summoner_id_url(key, summoner))
 		if str(raw_summoner) == "<Response [404]>":
 			summoner_response =  "Summoner Not Found Try Again"
+			return render.summoner_profile_form(summoner_response=summoner_response)
+		elif str(raw_summoner) == "<Response [400]>":
+			summoner_response =  "No Summoner Name Entered Try Again"
 			return render.summoner_profile_form(summoner_response=summoner_response)
 		else:
 			summoner_raw = raw_summoner.json()

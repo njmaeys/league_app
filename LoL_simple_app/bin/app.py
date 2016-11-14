@@ -12,7 +12,7 @@ import os
 
 urls = (
 	'/', 'Index',
-	'/summoner_profile', 'SummonerProfile',
+	'/summoner_profile?', 'SummonerProfile',
 	'/summoner_profile/no_summoner_found', 'noSummoner',
 	'/free_rotation', 'FreeRotation'
 	)
