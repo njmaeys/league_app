@@ -5,19 +5,19 @@ $def with (summoner_name, summoner_level, champ_one, champ_two, champ_three, cha
 <title>Summoner Profile</title>
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <style>
 body{
 background-image:url(https://lolstatic-a.akamaihd.net/frontpage/apps/prod/lcu_alpha_website/en_US/62aa54e72d774e7237129f46abc18d3b5b2a3e50/assets/img/bgs/magic-repeater.jpg);
-  width:100%;
-  height:100%;
-}
-.outerWrapper{
-display:flex;
-justify-content:center;
-align-items:center;
-flex-wrap:wrap;
-height:100%;
 width:100%;
+height:100%;
+
+
+}
+.summonerNamePlate{
+  display:flex;
+  align-items: center;
+  flex-wrap:wrap;
 
 }
 .summonerTitle{
@@ -25,13 +25,11 @@ font-family:arial;
 text-transform: uppercase;
 background: -webkit-repeating-linear-gradient(#e5cda0 0,#e5cda0 10px,#79622b 60px,#79622b 75px);
 -webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+-webkit-text-fill-color: transparent;
 }
-.summonerTitle > span{
-  color:#257372;
-  -webkit-text-fill-color: white;
-  border:0.5px solid white;
-  padding:10px;
+.outerWrapper{
+    margin: 150px 50px 0 50px;
+
 }
 .innerWrapper {
 border: 1px solid gainsboro;
@@ -54,54 +52,220 @@ color:white;
 border-bottom:.5px solid rgba(255, 255, 255, 0.09);
 padding:10px 0;
 letter-spacing:inherit;
-
 }
 
+.championLevel{
+  margin-right:50%;
+
+}
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.championBGAnimate{
+  float: right;
+height: 100%;
+position: absolute;
+right: 213px;
+z-index: 999999999999;
+top: 0;
+clip: rect(49px,498px,933px,33px);
+animation: float 3s ease-in-out forwards;
+animation-iteration-count: infinite;
+}
+.backButton{
+  position:absolute;
+  top:20px;
+  left:20px;
+  color:white;
+  border:1px solid white;
+  padding:10px;
+  text-decoration:none;
+  opacity:0.6;
+}
+.backButton:hover{
+  opacity:1;
+
+}
+.headerImage{
+  width: 100%;
+  max-height: 500px;
+  overflow: hidden;
+      border-bottom: 2px solid #95834c;
+}
+.headerImage img{
+  width:100%;
+  height:auto;
+}
+.namePlateCenter{
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: -71px;
+  background-color: black;
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  align-items: center;
+  padding: 20px;
+  animation: float 3s ease-in-out forwards;
+  animation-iteration-count: infinite;
+  border: 1px solid #95834c;
+
+}
+.namePlateWrapper{
+position:relative;
+letter-spacing: inherit;
+margin-bottom:20px;
+}
+.summonerIcon{
+  margin-right:20px;
+}
+.snapShotTitle{
+  width:100%;
+  color:white;
+  letter-spacing: normal;
+  text-align:center;
+}
+.snapShotWrapper{
+  text-align:center;
+    border-top: 1px solid #95834c;
+}
+.summonerTier > img{
+  max-width:50%;
+}
+.snapShotPanel{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: center;
+  align-items: center;
+}
+#snapShot1{
+    animation-duration: 2s;
+    animation-delay: 1s;
+
+}
+#snapShot2{
+  animation-duration: 2s;
+animation-delay: 2s;
+
+}
+#snapShot3{
+    animation-duration: 2s;
+  animation-delay: 3s;
+
+}
+.championBanner{
+  opacity:0.7;
+
+}
+.championBanner img{
+  max-width:100%;
+
+}
+.championBanner:hover{
+    opacity:1;
+}
+.championTitle{
+  display:none;
+  text-align:center;
+  position:fixed;
+  bottom:0;
+  width:100%;
+  padding:20px;
+  background-color:black;
+      border-top: 1px solid #95834c;
+  color:white;
+  left:0;
+  z-index:9999;
+  opacity:1;
+}
+.championBanner:hover .championTitle{
+  display:block;
+}
+.fiveChampsTitle{
+  color:white;
+  text-align:center;
+      margin-bottom: 60px;
+
+}
 </style>
-<head>
-  <link rel="shortcut icon" type="image/x-icon" href="static/psychbear_logo.jpg" />`
+<link rel="shortcut icon" type="image/x-icon" href="static/psychbear_logo.jpg" />
 </head>
-
 <body>
+<a href="http://localhost:8080/" class="backButton">Go Back</a>
+<div class="headerImage">
+  <img src=$most_played_champ>
+</div>
 
-<img src=$most_played_champ>
-</br>
-<img src=$summoner_icon> <b style="color:white;">Level $summoner_level</b>
-</br>
-<img src=$tier_image> <b style="color:white;">$summoner_tier</b> <b style="color:white;">$summoner_sub_tier</b>
-</br>
-<b style="color:white;">Wins: $ranked_wins Loses: $ranked_losses</b>
-</br>
-<b style="color:white;">Average KDA: $average_kills / $average_assists / $average_deaths</b>
-</br>
-<b style="color:white;">Current most winning champion $most_winning_champion</b>
+<div class="namePlateWrapper pure-g">
+  <div class="namePlateCenter animated fadeInDown">
+<div class="summonerIcon "><img src=$summoner_icon></div>
+<div class="summonerNamePlate">
+<h1 class="summonerTitle"><span>$summoner_name</span></h1>
+<b style="color:white;" class="championLevel">Level $summoner_level</b>
+</div>
+</div>
+</div>
 
 <div class="outerwrapper">
+<div class="snapShotWrapper pure-g">
+
+  <div class="pure-u-md-1-3 pure-u-sm-1-1 summonerTier snapShotPanel animated fadeInDown" id="snapShot1">
+  <img src=$tier_image><br> <b style="color:white;">$summoner_tier</b> <b style="color:white; margin-left:5px;">$summoner_sub_tier</b>
+</div>
+<div class="pure-u-md-1-3 pure-u-sm-1-1 snapShotPanel animated fadeInDown" id="snapShot2">
+  <b style="color:white;">Wins: $ranked_wins Loses: $ranked_losses</b>
+  </br>
+  <b style="color:white; margin-left:5px;">Average KDA: $average_kills / $average_assists / $average_deaths</b>
+
+</div>
+  <div class="pure-u-md-1-3 pure-u-sm-1-1 snapShotPanel animated fadeInDown" id="snapShot3">
+  <b style="color:white;">Current most winning champion: $most_winning_champion</b>
+</div>
+</div>
+
+
+
+
 <div class="innerWrapper">
-<h1 class="summonerTitle">The top 5 most frequently played champions for <span>$summoner_name</span> are: </h1>
+    <h1 class="fiveChampsTitle"> Last Five Champions </h1>
+<div class="ChampionBlockOuter pure-g">
+<div class="championImage pure-u-md-1-5 pure-u-sm-1-1 championBanner"> <img src=$image_one>
+<div class="championTitle">$champ_one - $title_one</div>
+ </div>
 
-<div class="ChampionBlockOuter pure-g">
-<div class="championImage pure-u-md-1-5 pure-u-sm-1-1"> <img src=$image_one> </div>
-<div class="championInfo pure-u-md-4-5 pure-u-sm-1-1"> <h3 class="championName">$champ_one</h3> $title_one </div>
-</div>
-<div class="ChampionBlockOuter pure-g">
-<div class="championImage pure-u-md-1-5 pure-u-sm-1-1"> <img src=$image_two> </div>
-<div class="championInfo pure-u-md-4-5 pure-u-sm-1-1"><h3 class="championName">$champ_two</h3> $title_two </div>
-</div>
-<div class="ChampionBlockOuter pure-g">
-<div class="championImage pure-u-md-1-5 pure-u-sm-1-1"> <img src=$image_three> </div>
-<div class="championInfo pure-u-md-4-5 pure-u-sm-1-1"> <h3 class="championName">$champ_three</h3> $title_three</div>
-</div>
-<div class="ChampionBlockOuter pure-g">
-<div class="championImage pure-u-md-1-5 pure-u-sm-1-1"> <img src=$image_four> </div>
-<div class="championInfo pure-u-md-4-5 pure-u-sm-1-1"> <h3 class="championName">$champ_four</h3> $title_four</div>
-</div>
-<div class="ChampionBlockOuter pure-g">
-<div class="championImage pure-u-md-1-5 pure-u-sm-1-1"> <img src=$image_five> </div>
-<div class="championInfo pure-u-md-4-5 pure-u-sm-1-1"><h3 class="championName">$champ_five</h3> $title_five </div>
+<div class="championImage pure-u-md-1-5 pure-u-sm-1-1 championBanner"> <img src=$image_two>
+  <div class="championTitle">$champ_two - $title_two</div>
+ </div>
+
+<div class="championImage pure-u-md-1-5 pure-u-sm-1-1 championBanner"> <img src=$image_three>
+  <div class="championTitle">$champ_three - $title_three</div>
+ </div>
+
+<div class="championImage pure-u-md-1-5 pure-u-sm-1-1 championBanner"> <img src=$image_four>
+  <div class="championTitle">$champ_four - $title_four</div>
+ </div>
+
+<div class="championImage pure-u-md-1-5 pure-u-sm-1-1 championBanner"> <img src=$image_five>
+  <div class="championTitle">$champ_five - $title_five</div>
+ </div>
+
 </div>
 
 </div>
 </div>
+
 </body>
 </html>
