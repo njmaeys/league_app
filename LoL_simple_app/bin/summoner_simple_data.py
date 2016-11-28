@@ -71,9 +71,9 @@ def calc_average_kda(kda_list, win_loss_list):
 		losses = win_loss_list[1]
 		total_games = wins + losses
 
-		average_kills = kill / total_games
-		average_deaths = death / total_games
-		average_assists = assist / total_games
+		average_kills = kill
+		average_deaths = total_games
+		average_assists = total_games / assist
 
 		average_kda.append(average_kills)
 		average_kda.append(average_deaths)
